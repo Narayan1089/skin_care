@@ -6,10 +6,11 @@ import 'package:image_picker/image_picker.dart';
 import 'package:skin_care/screens/home_screen.dart';
 
 import '../resources/auth_methods.dart';
-import '../utils/colors.dart';
+
 import '../utils/utils.dart';
 import '../widgets/text_field_input.dart';
 import 'login_screen.dart';
+import 'navigate_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class _LoginScreenState extends State<SignupScreen> {
       });
       // navigate to the home screen
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) => const NavigateScreen()),
       );
     } else {
       setState(() {
@@ -87,7 +88,7 @@ class _LoginScreenState extends State<SignupScreen> {
               Flexible(child: Container(), flex: 2),
               // svg image
               SvgPicture.asset(
-                'assets/ic_instagram.svg',
+                'assets/initial.svg',
                 color: primaryColor,
                 height: 60,
               ),

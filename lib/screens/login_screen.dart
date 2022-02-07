@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skin_care/screens/home_screen.dart';
+import 'package:skin_care/screens/navigate_screen.dart';
 import 'package:skin_care/utils/colors.dart';
 
 import '../resources/auth_methods.dart';
@@ -37,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text, password: _passwordController.text);
     if (res == 'success') {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const NavigateScreen()),
           (route) => false);
 
       setState(() {
@@ -63,11 +64,16 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               Flexible(child: Container(), flex: 2),
               // svg image
-              SvgPicture.asset(
-                'assets/ic_instagram.svg',
-                color: primaryColor,
-                height: 60,
+              Image.asset(
+                'assets/cc.png',
+                width: 120,
+                height: 140,
               ),
+              // SvgPicture.asset(
+              //   'assets/ic_instagram.svg',
+              //   color: primaryColor,
+              //   height: 60,
+              // ),
               const SizedBox(
                 height: 24,
               ),
@@ -107,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Radius.circular(5),
                             ),
                           ),
-                          color: blueColor,
+                          color: Colors.blue,
                         ),
                       ),
               ),

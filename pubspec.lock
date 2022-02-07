@@ -343,6 +343,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.9"
+  tflite:
+    dependency: "direct main"
+    description:
+      name: tflite
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.2"
   typed_data:
     dependency: transitive
     description:
@@ -365,5 +372,5 @@ packages:
     source: hosted
     version: "5.3.1"
 sdks:
-  dart: ">=2.17.0-85.0.dev <3.0.0"
+  dart: ">=2.16.0-100.0.dev <3.0.0"
   flutter: ">=2.5.0"
