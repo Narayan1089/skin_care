@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Insta Clone',
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: white,
+        scaffoldBackgroundColor: mobileBackgroundColor,
       ),
       // home: const ResponsiveLayout(
       //   mobileScreenLayout: MobileScreenLayout(),

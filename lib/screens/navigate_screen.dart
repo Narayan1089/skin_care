@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:skin_care/screens/home_screen.dart';
-import 'package:skin_care/utils/colors.dart';
 
 const mobileBackgroundColor = Color.fromRGBO(0, 0, 0, 1);
 const webBackgroundColor = Color.fromRGBO(18, 18, 18, 1);
@@ -63,7 +62,7 @@ class _NavigateScreenState extends State<NavigateScreen> {
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: CupertinoTabBar(
-        backgroundColor: maincolor,
+        backgroundColor: mobileBackgroundColor,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
