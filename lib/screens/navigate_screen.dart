@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:skin_care/screens/doctorScreen.dart';
+import 'package:skin_care/screens/historyScreeen.dart';
 import 'package:skin_care/screens/home_screen.dart';
+import 'package:skin_care/screens/profileScreen.dart';
+import 'package:skin_care/screens/searchScreen.dart';
+import 'package:skin_care/utils/colors.dart';
 
 const mobileBackgroundColor = Color.fromRGBO(0, 0, 0, 1);
 const webBackgroundColor = Color.fromRGBO(18, 18, 18, 1);
@@ -10,10 +15,11 @@ const primaryColor = Colors.white;
 const secondaryColor = Colors.grey;
 
 List<Widget> homeScreenItems = [
-  const Text('notifications'),
-  const Text('notifications'),
-  const HomeScreen(),
-  const Text('notifications'),
+  HomeScreen(),
+  DoctorScreen(),
+  SearchScreen(),
+  HistoryScreen(),
+  ProfileScreen()
 ];
 
 class NavigateScreen extends StatefulWidget {
@@ -62,7 +68,7 @@ class _NavigateScreenState extends State<NavigateScreen> {
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: CupertinoTabBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: dkblue,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(

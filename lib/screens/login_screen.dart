@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:skin_care/screens/home_screen.dart';
+import 'package:skin_care/screens/Tabscreen.dart';
 import 'package:skin_care/screens/navigate_screen.dart';
-import 'package:skin_care/utils/colors.dart';
 
 import '../resources/auth_methods.dart';
 import '../utils/utils.dart';
@@ -38,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text, password: _passwordController.text);
     if (res == 'success') {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const NavigateScreen()),
+          MaterialPageRoute(builder: (context) => NavigateScreen()),
           (route) => false);
 
       setState(() {

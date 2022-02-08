@@ -92,91 +92,92 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             })
       ]),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: [0.004, 1],
-            colors: [
-              Color(0xFF000000),
-              Color(0xFF3d3d3d),
-            ],
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const SizedBox(
-              height: 40,
-            ),
-            const Center(
-              child: Text(
-                'Scan Skin',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 28),
-              ),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Center(
-              child: _loading
-                  ? Container(
-                      width: 250,
-                      child: Column(
-                        children: <Widget>[
-                          Image.asset('assets/se.png'),
-                          const SizedBox(height: 50),
-                        ],
-                      ),
-                    )
-                  : Container(
-                      child: Column(
-                      children: <Widget>[
-                        Container(
-                          height: 250,
-                          child: Image.file(_image),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        _output != null
-                            ? Container(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 5),
-                                child: Text(
-                                    'It\'s ${_output[0]['label']} \n Probability:${(_output[0]['confidence'] as double).toStringAsFixed(2)}',
-                                    style: const TextStyle(
-                                        color: Colors.white, fontSize: 10.0)),
-                              )
-                            : Container(),
-                      ],
-                    )),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(top: 10),
-              child: Column(
-                children: <Widget>[
-                  AppButton(
-                    onClick: pickImage,
-                    btnText: 'From Camera',
-                  ),
-                  const SizedBox(height: 15),
-                  AppButton(
-                    onClick: pickGalleryImage,
-                    btnText: 'From Gallery',
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+      body:Container(),
+      // body: Container(
+      //   padding: const EdgeInsets.symmetric(horizontal: 24),
+      //   decoration: const BoxDecoration(
+      //     gradient: LinearGradient(
+      //       begin: Alignment.topCenter,
+      //       end: Alignment.bottomCenter,
+      //       stops: [0.004, 1],
+      //       colors: [
+      //         Color(0xFF000000),
+      //         Color(0xFF3d3d3d),
+      //       ],
+      //     ),
+      //   ),
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: <Widget>[
+      //       const SizedBox(
+      //         height: 40,
+      //       ),
+      //       const Center(
+      //         child: Text(
+      //           'Scan Skin',
+      //           style: TextStyle(
+      //               color: Colors.white,
+      //               fontWeight: FontWeight.w500,
+      //               fontSize: 28),
+      //         ),
+      //       ),
+      //       const SizedBox(
+      //         height: 50,
+      //       ),
+      //       Center(
+      //         child: _loading
+      //             ? Container(
+      //                 width: 250,
+      //                 child: Column(
+      //                   children: <Widget>[
+      //                     Image.asset('assets/se.png'),
+      //                     const SizedBox(height: 50),
+      //                   ],
+      //                 ),
+      //               )
+      //             : Container(
+      //                 child: Column(
+      //                 children: <Widget>[
+      //                   Container(
+      //                     height: 250,
+      //                     child: Image.file(_image),
+      //                   ),
+      //                   const SizedBox(
+      //                     height: 30,
+      //                   ),
+      //                   _output != null
+      //                       ? Container(
+      //                           padding:
+      //                               const EdgeInsets.symmetric(vertical: 5),
+      //                           child: Text(
+      //                               'It\'s ${_output[0]['label']} \n Probability:${(_output[0]['confidence'] as double).toStringAsFixed(2)}',
+      //                               style: const TextStyle(
+      //                                   color: Colors.white, fontSize: 10.0)),
+      //                         )
+      //                       : Container(),
+      //                 ],
+      //               )),
+      //       ),
+      //       Container(
+      //         width: MediaQuery.of(context).size.width,
+      //         margin: const EdgeInsets.only(top: 10),
+      //         child: Column(
+      //           children: <Widget>[
+      //             AppButton(
+      //               onClick: pickImage,
+      //               btnText: 'From Camera',
+      //             ),
+      //             const SizedBox(height: 15),
+      //             AppButton(
+      //               onClick: pickGalleryImage,
+      //               btnText: 'From Gallery',
+      //             ),
+      //           ],
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ),
       // const Center(
       //   child: Text("Hello"),
       // ),
