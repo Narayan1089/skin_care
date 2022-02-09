@@ -68,7 +68,8 @@ class _NavigateScreenState extends State<NavigateScreen> {
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: CupertinoTabBar(
-        backgroundColor: dkblue,
+        backgroundColor: mobileBackgroundColor,
+      
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
@@ -80,21 +81,22 @@ class _NavigateScreenState extends State<NavigateScreen> {
           ),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.search,
+                Icons.health_and_safety_outlined,
                 color: (_page == 1) ? primaryColor : secondaryColor,
               ),
               label: '',
               backgroundColor: primaryColor),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.add_circle,
+                Icons.checklist_rtl_outlined,
                 color: (_page == 2) ? primaryColor : secondaryColor,
               ),
               label: '',
               backgroundColor: primaryColor),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.favorite,
+              Icons.history_outlined,
+              
               color: (_page == 3) ? primaryColor : secondaryColor,
             ),
             label: '',

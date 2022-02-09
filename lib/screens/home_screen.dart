@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:skin_care/utils/colors.dart';
+import 'package:skin_care/widgets/drawer.dart';
 import 'package:tflite/tflite.dart';
 
 import '../resources/auth_methods.dart';
@@ -80,19 +82,31 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [
-        IconButton(
-            icon: const Icon(Icons.logout_sharp),
-            onPressed: () async {
-              await AuthMethods().signOut();
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const LoginScreen(),
-                ),
-              );
-            })
-      ]),
-      body:Container(),
+      appBar: AppBar(
+        elevation: 1,
+        shadowColor: Colors.grey,
+        backgroundColor: mobileBackgroundColor,
+        title: const Text(
+          "Skincare",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: white, fontSize: 25),
+        ),
+       actions: [IconButton(icon: Icon(Icons.search_outlined,color: white,size: 30.0,),onPressed: (){},)],
+      ),
+      drawer: MainDrawer(),
+      // (actions: [
+      //   IconButton(
+      //       icon: const Icon(Icons.logout_sharp),
+      //       onPressed: () async {
+      //         await AuthMethods().signOut();
+      //         Navigator.of(context).pushReplacement(
+      //           MaterialPageRoute(
+      //             builder: (context) => const LoginScreen(),
+      //           ),
+      //         );
+      //       })
+      // ]),
+      body: Container(),
       // body: Container(
       //   padding: const EdgeInsets.symmetric(horizontal: 24),
       //   decoration: const BoxDecoration(
