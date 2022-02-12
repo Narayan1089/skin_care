@@ -73,6 +73,118 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+<<<<<<< HEAD
+        elevation: 1,
+        shadowColor: Colors.grey,
+        backgroundColor: mobileBackgroundColor,
+        title: const Text(
+          "Skincare",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: white, fontSize: 25),
+        ),
+       actions: [IconButton(icon: const Icon(Icons.search_outlined,color: white,size: 30.0,),onPressed: (){},)],
+      ),
+      drawer: MainDrawer(),
+      // (actions: [
+      //   IconButton(
+      //       icon: const Icon(Icons.logout_sharp),
+      //       onPressed: () async {
+      //         await AuthMethods().signOut();
+      //         Navigator.of(context).pushReplacement(
+      //           MaterialPageRoute(
+      //             builder: (context) => const LoginScreen(),
+      //           ),
+      //         );
+      //       })
+      // ]),
+      // body: Container(),
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.004, 1],
+            colors: [
+              Color(0xFF000000),
+              Color(0xFF3d3d3d),
+            ],
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const SizedBox(
+              height: 40,
+            ),
+            const Center(
+              child: Text(
+                'Scan Skin',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 28),
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Center(
+              child: _loading
+                  ? Container(
+                      width: 250,
+                      child: Column(
+                        children: <Widget>[
+                          Image.asset('assets/se.png'),
+                          const SizedBox(height: 50),
+                        ],
+                      ),
+                    )
+                  : Container(
+                      child: Column(
+                      children: <Widget>[
+                        Container(
+                          height: 250,
+                          child: Image.file(_image),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        _output != null
+                            ? Container(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 5),
+                                child: Text(
+                                    'It\'s ${_output[0]['label']} \n Probability:${(_output[0]['confidence'] as double).toStringAsFixed(2)}',
+                                    style: const TextStyle(
+                                        color: Colors.white, fontSize: 10.0)),
+                              )
+                            : Container(),
+                      ],
+                    )),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.only(top: 10),
+              child: Column(
+                children: <Widget>[
+                  AppButton(
+                    onClick: pickImage,
+                    btnText: 'From Camera',
+                  ),
+                  const SizedBox(height: 15),
+                  AppButton(
+                    onClick: pickGalleryImage,
+                    btnText: 'From Gallery',
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+ 
+=======
         title: const Text('Image Classification'),
         backgroundColor: Colors.black,
       ),
@@ -191,6 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
       //   backgroundColor: Colors.purple,
       //   child: const Icon(Icons.image),
       // ),
+>>>>>>> 9d1641c36237219929b659d8c9ecb1f9bc69c2e2
     );
   }
 

@@ -8,4 +8,8 @@ extension ColorExtension on Color {
     return Color.fromARGB(alpha, (red * value).round(), (green * value).round(),
         (blue * value).round());
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9d1641c36237219929b659d8c9ecb1f9bc69c2e2

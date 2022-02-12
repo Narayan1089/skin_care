@@ -39,11 +39,15 @@ dependencies:
   firebase_auth: ^3.3.6
   cloud_firestore: ^3.1.7
   flutter_svg: ^1.0.3
-  image_picker: ^0.8.4+6
+  image_picker:
   intl: ^0.17.0
   # provider: ^6.0.2
   tflite: ^1.1.2
   fl_chart: ^0.41.0
+<<<<<<< HEAD
+  pie_chart: ^5.1.0
+=======
+>>>>>>> 9d1641c36237219929b659d8c9ecb1f9bc69c2e2
 
 
  

@@ -1,8 +1,18 @@
+<<<<<<< HEAD
+
+// ignore_for_file: non_constant_identifier_names
+
+=======
+>>>>>>> 9d1641c36237219929b659d8c9ecb1f9bc69c2e2
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:skin_care/widgets/colors_extension.dart';
 
+<<<<<<< HEAD
+import 'inidcator.dart';
+=======
 import 'indicator.dart';
+>>>>>>> 9d1641c36237219929b659d8c9ecb1f9bc69c2e2
 
 class PieChartSample1 extends StatefulWidget {
   var result_name = '';
@@ -151,4 +161,8 @@ class PieChartSample1State extends State<PieChartSample1> {
       },
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9d1641c36237219929b659d8c9ecb1f9bc69c2e2
