@@ -1,7 +1,10 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:skin_care/screens/result_screen.dart';
 import 'package:tflite/tflite.dart';
 
 import '../resources/auth_methods.dart';
@@ -20,6 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
   late File _image;
   late List _output;
   final picker = ImagePicker();
+  var result_name = '';
+  double? result_value;
 
   pickImage() async {
     var image = await picker.getImage(source: ImageSource.camera);
@@ -54,6 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _loading = false;
       _output = output!;
+      result_name = _output[0]['label'];
+      result_value = _output[0]['confidence'];
     });
   }
 
@@ -82,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(actions: [
         IconButton(
-            icon: const Icon(Icons.logout_sharp),
+            icon: const Icon(Icons.info),
             onPressed: () async {
               await AuthMethods().signOut();
               Navigator.of(context).pushReplacement(
@@ -149,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 5),
                                 child: Text(
-                                    'It\'s ${_output[0]['label']} \n Probability:${(_output[0]['confidence'] as double).toStringAsFixed(2)}',
+                                    'It\'s ${_output[0]['label']} \n Probability:${(_output[0]['confidence'] as double).toStringAsFixed(1)}',
                                     style: const TextStyle(
                                         color: Colors.white, fontSize: 10.0)),
                               )
@@ -170,6 +177,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   AppButton(
                     onClick: pickGalleryImage,
                     btnText: 'From Gallery',
+                  ),
+                  AppButton(
+                    onClick: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultScreen(
+                          result_name: result_name,
+                          result_value: result_value!,
+                        ),
+                      ),
+                    ),
+                    btnText: 'See Result',
                   ),
                 ],
               ),
