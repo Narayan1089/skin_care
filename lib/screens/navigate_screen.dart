@@ -69,7 +69,6 @@ class _NavigateScreenState extends State<NavigateScreen> {
       ),
       bottomNavigationBar: CupertinoTabBar(
         backgroundColor: mobileBackgroundColor,
-      
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
@@ -96,7 +95,6 @@ class _NavigateScreenState extends State<NavigateScreen> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.history_outlined,
-              
               color: (_page == 3) ? primaryColor : secondaryColor,
             ),
             label: '',

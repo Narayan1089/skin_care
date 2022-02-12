@@ -41,8 +41,9 @@ dependencies:
   flutter_svg: ^1.0.3
   image_picker: ^0.8.4+6
   intl: ^0.17.0
-  provider: ^6.0.2
+  # provider: ^6.0.2
   tflite: ^1.1.2
+  fl_chart: ^0.41.0
 
 
  
