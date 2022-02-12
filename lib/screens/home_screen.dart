@@ -156,9 +156,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 5),
                                 child: Text(
-                                    'It\'s ${_output[0]['label']} \n Probability:${(_output[0]['confidence'] as double).toStringAsFixed(1)}',
-                                    style: const TextStyle(
-                                        color: Colors.white, fontSize: 10.0)),
+                                  'It\'s ${_output[0]['label']} \n Probability:${(_output[0]['confidence'] as double).toStringAsFixed(1)}',
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 10.0),
+                                ),
                               )
                             : Container(),
                       ],
