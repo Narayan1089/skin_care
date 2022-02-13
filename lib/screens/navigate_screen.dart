@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:skin_care/screens/doctorScreen.dart';
@@ -19,7 +20,9 @@ List<Widget> homeScreenItems = [
   DoctorScreen(),
   SearchScreen(),
   HistoryScreen(),
-  ProfileScreen()
+  ProfileScreen(
+    uid: FirebaseAuth.instance.currentUser!.uid,
+  ),
 ];
 
 class NavigateScreen extends StatefulWidget {

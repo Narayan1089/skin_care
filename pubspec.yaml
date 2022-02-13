@@ -45,6 +45,8 @@ dependencies:
   tflite: ^1.1.2
   fl_chart: ^0.41.0
   provider:
+  uuid: ^3.0.5
+  firebase_storage: ^10.2.7
 
 
  

@@ -8,6 +8,9 @@ import 'dart:io';
 import 'dart:async';
 import 'package:tflite/tflite.dart';
 
+import '../resources/auth_methods.dart';
+import 'login_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -16,11 +19,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            appBar: AppBar(
+      appBar: AppBar(
         elevation: 1,
         shadowColor: Colors.grey,
         backgroundColor: mobileBackgroundColor,
@@ -29,10 +31,25 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
               fontWeight: FontWeight.bold, color: white, fontSize: 25),
         ),
-       actions: [IconButton(icon: const Icon(Icons.search_outlined,color: white,size: 30.0,),onPressed: (){},)],
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.logout,
+              color: white,
+              size: 30.0,
+            ),
+            onPressed: () async {
+              await AuthMethods().signOut();
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ),
+              );
+            },
+          )
+        ],
       ),
       drawer: MainDrawer(),
-     
     );
   }
 }
