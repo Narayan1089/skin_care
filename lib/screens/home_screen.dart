@@ -72,120 +72,120 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Image Classification'),
-        backgroundColor: Colors.black,
-      ),
-      backgroundColor: const Color.fromARGB(194, 6, 78, 133),
-      body: _loading
-          ? Container(
-              alignment: Alignment.center,
-              child: const CircularProgressIndicator(),
-            )
-          : Container(
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _image == null
-                      ? Center(
-                          child: Container(
-                            child: SvgPicture.asset("assets/svgc.svg"),
-                            height: MediaQuery.of(context).size.height * 0.6,
-                            width: MediaQuery.of(context).size.width * 0.8,
-                          ),
-                        )
-                      : Image.file(File(_image!.path)),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  _outputs != null
-                      ? Text(
-                          '${_outputs![0]["label"]},${_outputs![0]["confidence"]}',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 10.0,
-                            background: Paint()..color = Colors.white,
-                          ),
-                        )
-                      : Container(),
-                  result_name = _outputs![0]['label'],
-                  result_value = _outputs![0]['confidence'],
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 35.0,
-                      top: 25,
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(7)),
-                          child: FlatButton(
-                            onPressed: openCamera,
-                            child: const Text('Take Image',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                )),
-                            color: Colors.blue,
-                          ),
-                        ),
-                        const SizedBox(width: 15),
-                        Container(
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7)),
-                          child: FlatButton(
-                            onPressed: openGallery,
-                            child: const Text('Choose from Gallary',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 12,
-                                )),
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  _outputs != null &&
-                          result_name != null &&
-                          result_value != null
-                      ? Container(
-                          width: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7)),
-                          child: FlatButton(
-                            onPressed: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ResultScreen(
-                                  result_name: result_name,
-                                  result_value: result_value!,
-                                ),
-                              ),
-                            ),
-                            child: const Text('Check Result',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 12,
-                                )),
-                            color: Colors.white,
-                          ),
-                        )
-                      : Container(),
-                ],
-              ),
-            ),
+      // appBar: AppBar(
+      //   title: const Text('Image Classification'),
+      //   backgroundColor: Colors.black,
+      // ),
+      // backgroundColor: const Color.fromARGB(194, 6, 78, 133),
+      // body: _loading
+      //     ? Container(
+      //         alignment: Alignment.center,
+      //         child: const CircularProgressIndicator(),
+      //       )
+      //     : Container(
+      //         width: MediaQuery.of(context).size.width,
+      //         child: Column(
+      //           crossAxisAlignment: CrossAxisAlignment.center,
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: [
+      //             _image == null
+      //                 ? Center(
+      //                     child: Container(
+      //                       child: SvgPicture.asset("assets/svgc.svg"),
+      //                       height: MediaQuery.of(context).size.height * 0.6,
+      //                       width: MediaQuery.of(context).size.width * 0.8,
+      //                     ),
+      //                   )
+      //                 : Image.file(File(_image!.path)),
+      //             const SizedBox(
+      //               height: 20,
+      //             ),
+      //             _outputs != null
+      //                 ? Text(
+      //                     '${_outputs![0]["label"]},${_outputs![0]["confidence"]}',
+      //                     style: TextStyle(
+      //                       color: Colors.black,
+      //                       fontSize: 10.0,
+      //                       background: Paint()..color = Colors.white,
+      //                     ),
+      //                   )
+      //                 : Container(),
+      //             result_name = _outputs![0]['label'],
+      //             result_value = _outputs![0]['confidence'],
+      //             Padding(
+      //               padding: const EdgeInsets.only(
+      //                 left: 35.0,
+      //                 top: 25,
+      //               ),
+      //               child: Row(
+      //                 children: [
+      //                   Container(
+      //                     width: 150,
+      //                     decoration: BoxDecoration(
+      //                         color: Colors.blue,
+      //                         borderRadius: BorderRadius.circular(7)),
+      //                     child: FlatButton(
+      //                       onPressed: openCamera,
+      //                       child: const Text('Take Image',
+      //                           style: TextStyle(
+      //                             color: Colors.white,
+      //                             fontSize: 15,
+      //                           )),
+      //                       color: Colors.blue,
+      //                     ),
+      //                   ),
+      //                   const SizedBox(width: 15),
+      //                   Container(
+      //                     width: 150,
+      //                     decoration: BoxDecoration(
+      //                         color: Colors.white,
+      //                         borderRadius: BorderRadius.circular(7)),
+      //                     child: FlatButton(
+      //                       onPressed: openGallery,
+      //                       child: const Text('Choose from Gallary',
+      //                           style: TextStyle(
+      //                             color: Colors.blue,
+      //                             fontSize: 12,
+      //                           )),
+      //                       color: Colors.white,
+      //                     ),
+      //                   ),
+      //                 ],
+      //               ),
+      //             ),
+      //             const SizedBox(
+      //               height: 10,
+      //             ),
+      //             _outputs != null &&
+      //                     result_name != null &&
+      //                     result_value != null
+      //                 ? Container(
+      //                     width: 150,
+      //                     decoration: BoxDecoration(
+      //                         color: Colors.white,
+      //                         borderRadius: BorderRadius.circular(7)),
+      //                     child: FlatButton(
+      //                       onPressed: () => Navigator.push(
+      //                         context,
+      //                         MaterialPageRoute(
+      //                           builder: (context) => ResultScreen(
+      //                             result_name: result_name,
+      //                             result_value: result_value!,
+      //                           ),
+      //                         ),
+      //                       ),
+      //                       child: const Text('Check Result',
+      //                           style: TextStyle(
+      //                             color: Colors.blue,
+      //                             fontSize: 12,
+      //                           )),
+      //                       color: Colors.white,
+      //                     ),
+      //                   )
+      //                 : Container(),
+      //           ],
+      //         ),
+      //       ),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: _optiondialogbox,
       //   backgroundColor: Colors.purple,

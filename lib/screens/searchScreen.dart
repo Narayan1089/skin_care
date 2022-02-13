@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:skin_care/screens/result_screen.dart';
 import 'package:skin_care/utils/colors.dart';
 import 'package:tflite/tflite.dart';
 
@@ -14,55 +15,35 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  File? _image;
+   PickedFile? _image;
   bool _loading = false;
-  List<dynamic>? _output;
-  final _picker = ImagePicker();
-
-  pickImage() async {
-    var image = await _picker.getImage(source: ImageSource.camera);
-
-    if (image == null) {
-      return null;
-    }
-
-    setState(() {
-      _image = File(image.path);
-    });
-    classifyImage(_image);
-  }
-
-  pickGalleryImage() async {
-    var image = await _picker.getImage(source: ImageSource.gallery);
-
-    if (image == null) {
-      return null;
-    }
-
-    setState(() {
-      _image = File(image.path);
-    });
-    classifyImage(_image);
-  }
+  List<dynamic>? _outputs;
+  var result_name = '';
+  double? result_value;
 
   @override
   void initState() {
     super.initState();
     _loading = true;
+
     loadModel().then((value) {
-      // setState(() {});
+      setState(() {
+        _loading = false;
+      });
     });
   }
 
-  @override
-  void dispose() {
-    Tflite.close();
-    super.dispose();
+//Load the Tflite model
+  loadModel() async {
+    await Tflite.loadModel(
+      model: "assets/trainedModel.tflite",
+      labels: "assets/labels.txt",
+    );
   }
 
-  classifyImage(File? image) async {
+  classifyImage(image) async {
     var output = await Tflite.runModelOnImage(
-      path: image!.path,
+      path: image.path,
       numResults: 2,
       threshold: 0.5,
       imageMean: 127.5,
@@ -70,106 +51,200 @@ class _SearchScreenState extends State<SearchScreen> {
     );
     setState(() {
       _loading = false;
-      _output = output;
+      //Declare List _outputs in the class which will be used to show the classified classs name and confidence
+      _outputs = output;
     });
   }
 
-  loadModel() async {
-    await Tflite.loadModel(
-      model: 'assets/trainedModel.tflite',
-      labels: 'assets/labels.txt',
-    );
+  Future pickImage() async {
+    var image = await _picker.getImage(source: ImageSource.gallery);
+    if (image == null) return null;
+    setState(() {
+      _loading = true;
+      _image = image;
+      result_name = _outputs![0]['label'];
+      result_value = _outputs![0]['confidence'];
+    });
+    classifyImage(image);
   }
+
+  final ImagePicker _picker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Cat vs Dog Classifier'),
+     
+      backgroundColor: const Color.fromARGB(194, 6, 78, 133),
+      body: SingleChildScrollView(scrollDirection:Axis.vertical,
+        child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [Padding(
+          padding: const EdgeInsets.only(top:60.0,left:30),
+          child: Text('Self Test',style:TextStyle(color:white,fontSize: 30,fontWeight: FontWeight.bold)),
+        ),_loading
+            ? Container(
+                alignment: Alignment.center,
+                child: const CircularProgressIndicator(),
+              )
+            : Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _image == null
+                        ? Center(
+                            child: Container(
+                              child: SvgPicture.asset("assets/svgc.svg"),
+                              height: MediaQuery.of(context).size.height * 0.6,
+                              width: MediaQuery.of(context).size.width * 0.8,
+                            ),
+                          )
+                        : Container( height: MediaQuery.of(context).size.height * 0.5,
+                              width: MediaQuery.of(context).size.width * 0.6,child: Image.file(File(_image!.path,))),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    // _outputs != null
+                    //     ? Text(
+                    //         '${_outputs![0]["label"]},${_outputs![0]["confidence"]}',
+                    //         style: TextStyle(
+                    //           color: Colors.black,
+                    //           fontSize: 10.0,
+                    //           background: Paint()..color = Colors.white,
+                    //         ),
+                    //       )
+                    //     : Container(),
+              
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 35.0,
+                        top: 25,
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 150,
+                            decoration: BoxDecoration(
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(7)),
+                            child: FlatButton(
+                              onPressed: openCamera,
+                              child: const Text('Take Image',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  )),
+                              color: Colors.blue,
+                            ),
+                          ),
+                          const SizedBox(width: 15),
+                          Container(
+                            width: 150,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(7)),
+                            child: FlatButton(
+                              onPressed: openGallery,
+                              child: const Text('Choose from Gallary',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 12,
+                                  )),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    _outputs != null 
+                     
+                        ? Container(
+                            width: 150,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(7)),
+                            child: FlatButton(
+                              onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ResultScreen(
+                                    result_name:_outputs![0]['label'],
+                                    result_value: _outputs![0]['confidence'],
+                                  ),
+                                ),
+                              ),
+                              child: const Text('Check Result',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 12,
+                                  )),
+                              color: Colors.white,
+                            ),
+                          )
+                        : Container(),
+                  ],
+                ),
+              ),],)),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(height: 160.0),
-            _image == null
-                ? Text('No image selected')
-                : Container(
-                    child: Image.file(_image!),
-                    height: 250.0, // Fixed height for image
-                  ),
-            SizedBox(height: 20.0),
-            _output != null ? Text('${_output![0]['label']}') : Container(),
-            SizedBox(height: 50.0),
-            ElevatedButton(
-              onPressed: pickImage,
-              child: Text('Take Picture'),
-            ),
-            ElevatedButton(
-              onPressed: pickGalleryImage,
-              child: Text('Camera Roll'),
-            ),
-          ],
-        ),
-      ),
-
-      // backgroundColor: Color.fromARGB(194, 6, 78, 133),
-      // body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      //   Padding(
-      //     padding: EdgeInsets.only(top: 70.0, left: 30),
-      //     child: Text(
-      //       "Take Test ",
-      //       style: TextStyle(
-      //           color: white, fontSize: 40, fontWeight: FontWeight.bold),
-      //     ),
-      //   ),
-      //   Center(
-      //     child: Container(
-      //       child: SvgPicture.asset("assets/svgc.svg"),
-      //       height: MediaQuery.of(context).size.height * 0.6,
-      //       width: MediaQuery.of(context).size.width * 0.8,
-      //     ),
-      //   ),
-      //   Padding(
-      //     padding: const EdgeInsets.only(
-      //       left: 35.0,
-      //       top: 25,
-      //     ),
-      //     child: Row(
-      //       children: [
-      //         Container(
-      //           width: 150,
-      //           decoration: BoxDecoration(
-      //               color: Colors.blue, borderRadius: BorderRadius.circular(7)),
-      //           child: FlatButton(
-      //             onPressed: () {},
-      //             child: Text('Take Image',
-      //                 style: TextStyle(
-      //                   color: Colors.white,
-      //                   fontSize: 15,
-      //                 )),
-      //             color: Colors.blue,
-      //           ),
-      //         ),
-      //         SizedBox(width: 20),
-      //         Container(
-      //           width: 150,
-      //           decoration: BoxDecoration(
-      //               color: Colors.white,
-      //               borderRadius: BorderRadius.circular(7)),
-      //           child: FlatButton(
-      //             onPressed: () {},
-      //             child: Text('Choose from Gallary',
-      //                 style: TextStyle(
-      //                   color: Colors.blue,
-      //                   fontSize: 12,
-      //                 )),
-      //             color: Colors.white,
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   )
-      // ]),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _optiondialogbox,
+      //   backgroundColor: Colors.purple,
+      //   child: const Icon(Icons.image),
+      // ),
     );
   }
+
+  //camera method
+  Future<void> _optiondialogbox() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: Colors.purple,
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  GestureDetector(
+                    child: const Text(
+                      "Take a Picture",
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
+                    ),
+                    onTap: openCamera,
+                  ),
+                  const Padding(padding: EdgeInsets.all(10.0)),
+                  GestureDetector(
+                    child: const Text(
+                      "Select image ",
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
+                    ),
+                    onTap: openGallery,
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  Future openCamera() async {
+    var image = await _picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = image;
+    });
+  }
+
+  //camera method
+  Future openGallery() async {
+    var piture = await _picker.getImage(source: ImageSource.gallery);
+    setState(() {
+      _image = piture;
+    });
+    classifyImage(piture);
+  }
 }
+
+
+
