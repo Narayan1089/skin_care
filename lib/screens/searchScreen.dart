@@ -77,8 +77,8 @@ class _SearchScreenState extends State<SearchScreen> {
       backgroundColor: const Color.fromARGB(194, 6, 78, 133),
       body: SingleChildScrollView(scrollDirection:Axis.vertical,
         child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [Padding(
-          padding: const EdgeInsets.only(top:60.0,left:30),
-          child: Text('Self Test',style:TextStyle(color:white,fontSize: 30,fontWeight: FontWeight.bold)),
+          padding: const EdgeInsets.only(top:60.0,left:20),
+          child: Text('Take Test',style:TextStyle(color:white,fontSize: 30,fontWeight: FontWeight.bold)),
         ),_loading
             ? Container(
                 alignment: Alignment.center,
@@ -103,16 +103,16 @@ class _SearchScreenState extends State<SearchScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    // _outputs != null
-                    //     ? Text(
-                    //         '${_outputs![0]["label"]},${_outputs![0]["confidence"]}',
-                    //         style: TextStyle(
-                    //           color: Colors.black,
-                    //           fontSize: 10.0,
-                    //           background: Paint()..color = Colors.white,
-                    //         ),
-                    //       )
-                    //     : Container(),
+                    _outputs != null
+                        ? Text(
+                            '${_outputs![0]["label"]},${_outputs![0]["confidence"]}',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 10.0,
+                              background: Paint()..color = Colors.white,
+                            ),
+                          )
+                        : Container(),
               
                     Padding(
                       padding: const EdgeInsets.only(
@@ -188,45 +188,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),],)),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _optiondialogbox,
-      //   backgroundColor: Colors.purple,
-      //   child: const Icon(Icons.image),
-      // ),
+ 
     );
   }
 
-  //camera method
-  Future<void> _optiondialogbox() {
-    return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            backgroundColor: Colors.purple,
-            content: SingleChildScrollView(
-              child: ListBody(
-                children: <Widget>[
-                  GestureDetector(
-                    child: const Text(
-                      "Take a Picture",
-                      style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    ),
-                    onTap: openCamera,
-                  ),
-                  const Padding(padding: EdgeInsets.all(10.0)),
-                  GestureDetector(
-                    child: const Text(
-                      "Select image ",
-                      style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    ),
-                    onTap: openGallery,
-                  )
-                ],
-              ),
-            ),
-          );
-        });
-  }
+
 
   Future openCamera() async {
     var image = await _picker.getImage(source: ImageSource.camera);
@@ -234,6 +200,7 @@ class _SearchScreenState extends State<SearchScreen> {
     setState(() {
       _image = image;
     });
+      classifyImage(image);
   }
 
   //camera method

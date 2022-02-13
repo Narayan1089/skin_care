@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:skin_care/screens/Tabscreen.dart';
 import 'package:skin_care/screens/navigate_screen.dart';
 
 import '../resources/auth_methods.dart';
