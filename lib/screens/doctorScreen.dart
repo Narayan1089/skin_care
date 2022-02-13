@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skin_care/utils/colors.dart';
+import 'package:skin_care/widgets/docotrmain.dart';
 import 'package:skin_care/widgets/doctorinfo.dart';
 
 class DoctorScreen extends StatefulWidget {
@@ -78,8 +79,8 @@ class _DoctorScreenState extends State<DoctorScreen> {
                   ),
                   child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12.0),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 12.0),
                         child: CircleAvatar(
                           child: Icon(
                             Icons.mail,
@@ -91,7 +92,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.1,
                       ),
-                      doctormain(name:"Tusharv Gharge",degree: "berojgar",eduction: "be af",),
+                      const doctormain(name:"Tusharv Gharge",degree: "berojgar",eduction: "be af",),
                       SizedBox(width: MediaQuery.of(context).size.width * 0.15),
                       InkWell(
                         child: const Icon(
@@ -109,50 +110,6 @@ class _DoctorScreenState extends State<DoctorScreen> {
                   ),
                 ),
               ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class doctormain extends StatelessWidget {
-  final String? name;
-  final String? degree;
-  final String? eduction;
- const doctormain({
-    required this.name,
-    required this.degree,
-    required this.eduction,
-
- 
-  }) ;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            name!,
-            style: TextStyle(
-              fontSize: 18,
-            ),
-          ),
-          Text(
-            degree!,
-            style: TextStyle(
-              fontSize: 15,
-            ),
-          ),
-          Text(
-            degree!,
-            style: TextStyle(
-              fontSize: 12,
             ),
           ),
         ],
