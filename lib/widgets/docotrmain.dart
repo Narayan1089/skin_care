@@ -34,7 +34,7 @@ class doctormain extends StatelessWidget {
             ),
           ),
           Text(
-            degree!,
+            eduction!,
             style: TextStyle(
               fontSize: 12,
             ),
