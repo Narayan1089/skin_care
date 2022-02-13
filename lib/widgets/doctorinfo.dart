@@ -157,22 +157,6 @@ class appoinmentinfo extends StatelessWidget {
            fontSize: 17,
          )),
       
-        // trailing: Container(
-        //   width: 70,
-        //   height: 30,
-        //   decoration: BoxDecoration(
-        //       color: Colors.blue, borderRadius: BorderRadius.circular(25)),
-        //   child: Center(
-        //     child: Text(
-        //       'Now',
-        //       style: TextStyle(
-        //         color: Colors.white,
-        //         fontWeight: FontWeight.bold,
-        //         fontSize: 15,
-        //       ),
-        //     ),
-        //   ),
-        // ),
       ),
       ),
     );

@@ -21,44 +21,37 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Insta Clone',
+      title: 'SkinCare',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: mobileBackgroundColor,
       ),
-      // home: const ResponsiveLayout(
-      //   mobileScreenLayout: MobileScreenLayout(),
-      //   webScreenLayout: WebScreenLayout(),
-      // ),
-      home:NavigateScreen(),
-      //     // const LoginScreen(),
-      //     StreamBuilder(
-      //   stream: FirebaseAuth.instance.authStateChanges(),
-      //   builder: (context, snapshot) {
-      //     if (snapshot.connectionState == ConnectionState.active) {
-      //       // Checking if the snapshot has any data or not
-      //       if (snapshot.hasData) {
-      //         // if snapshot has data which means user is logged in then we check the width of screen and accordingly display the screen layout
-      //         return const HomeScreen();
-      //       } else if (snapshot.hasError) {
-      //         return Center(
-      //           child: Text('${snapshot.error}'),
-      //         );
-      //       }
-      //     }
+  
+      home:StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            // Checking if the snapshot has any data or not
+            if (snapshot.hasData) {
+              // if snapshot has data which means user is logged in then we check the width of screen and accordingly display the screen layout
+              return const NavigateScreen();
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('${snapshot.error}'),
+              );
+            }
+          }
 
-      //     // means connection to future hasnt been made yet
-      //     if (snapshot.connectionState == ConnectionState.waiting) {
-      //       return const Center(
-      //         child: CircularProgressIndicator(),
-      //       );
-      //     }
+          // means connection to future hasnt been made yet
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
 
-      //     return const LoginScreen();
-      //   },
-      // ),
-      // // const Scaffold(
-      // //   body: Text('Start Page'),
-      // // ),
+          return const LoginScreen();
+        },
+      ),
+    
     );
   }
 }
