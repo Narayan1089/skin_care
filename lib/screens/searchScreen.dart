@@ -76,20 +76,20 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () async {
-                await AuthMethods().signOut();
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => const LoginScreen(),
-                  ),
-                );
-              },
-              icon: const Icon(Icons.logout))
-        ],
-      ),
+      // appBar: AppBar(
+      //   actions: [
+      //     IconButton(
+      //         onPressed: () async {
+      //           await AuthMethods().signOut();
+      //           Navigator.of(context).pushReplacement(
+      //             MaterialPageRoute(
+      //               builder: (context) => const LoginScreen(),
+      //             ),
+      //           );
+      //         },
+      //         icon: const Icon(Icons.logout))
+      //   ],
+      // ),
       backgroundColor: const Color.fromARGB(194, 6, 78, 133),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
