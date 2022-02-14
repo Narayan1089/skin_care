@@ -20,9 +20,9 @@ List<Widget> homeScreenItems = [
   DoctorScreen(),
   SearchScreen(),
   HistoryScreen(),
-  ProfileScreen(),
-    // uid: FirebaseAuth.instance.currentUser!.uid,
-
+  ProfileScreen(
+    uid: FirebaseAuth.instance.currentUser!.uid,
+  ),
 ];
 
 class NavigateScreen extends StatefulWidget {

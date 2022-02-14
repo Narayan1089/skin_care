@@ -136,7 +136,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                         _outputs != null
                             ? Text(
-                                '${_outputs![0]["label"]},${_outputs![0]["confidence"]},${_outputs!}',
+                                '${_outputs![0]["label"]},${_outputs![0]["confidence"]}',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 10.0,
@@ -190,7 +190,6 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                         _outputs != null
                             ? Container(
-                              
                                 width: 150,
                                 decoration: BoxDecoration(
                                     color: Colors.white,
@@ -203,8 +202,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                         result_name: _outputs![0]['label'],
                                         result_value: _outputs![0]
                                             ['confidence'],
-                                            image:_image
-                                         
                                       ),
                                     ),
                                   ),
@@ -224,7 +221,7 @@ class _SearchScreenState extends State<SearchScreen> {
         )),
       ),
     );
-   }
+  }
 
   Future openCamera() async {
     var image = await _picker.getImage(source: ImageSource.camera);
