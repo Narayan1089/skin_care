@@ -25,11 +25,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-          value: doctorprovider(),
+          value: UserProvider(),
         ),
         ChangeNotifierProvider.value(
-          value: UserProvider(),
-        )
+          value: doctorprovider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

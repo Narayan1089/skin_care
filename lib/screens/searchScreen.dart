@@ -66,7 +66,7 @@ class _SearchScreenState extends State<SearchScreen> {
       _loading = true;
       _image = image;
       result_name = _outputs![0]['label'];
-      result_value = _outputs![0]['confidence'];
+      result_value = (_outputs![0]['confidence']).toStringAsFixed(2) as double?;
     });
     classifyImage(image);
   }
