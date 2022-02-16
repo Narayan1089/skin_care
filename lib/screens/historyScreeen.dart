@@ -1,18 +1,51 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skin_care/utils/colors.dart';
 
+import '../utils/utils.dart';
+
 class HistoryScreen extends StatefulWidget {
-  const HistoryScreen({Key? key}) : super(key: key);
+  final String uid;
+  const HistoryScreen({Key? key, required this.uid}) : super(key: key);
 
   @override
   _HistoryScreenState createState() => _HistoryScreenState();
 }
 
 class _HistoryScreenState extends State<HistoryScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+    getData();
+  }
+
+  getData() async {
+    setState(() {});
+    try {
+      await FirebaseFirestore.instance
+          .collection('results')
+          .doc(widget.uid)
+          .get();
+
+      // get post lENGTH
+      await FirebaseFirestore.instance
+          .collection('results')
+          .where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+          .get();
+    } catch (e) {
+      showSnackBar(
+        context,
+        e.toString(),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,8 +76,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
       //       padding: EdgeInsets.all(30.0),
       //       child: Text(" Previous test data",style:TextStyle(color: Colors.white,fontSize: 25),),
       //     ),
-      body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('results').snapshots(),
+      body: FutureBuilder(
+        future: FirebaseFirestore.instance
+            .collection('results')
+            .where('uid', isEqualTo: widget.uid)
+            .get(),
         builder: (context,
             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -67,6 +103,31 @@ class _HistoryScreenState extends State<HistoryScreen> {
     );
   }
 }
+
+//       body: StreamBuilder(
+//         stream: FirebaseFirestore.instance.collection('results').snapshots(),
+//         builder: (context,
+//             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+//           if (snapshot.connectionState == ConnectionState.waiting) {
+//             return const Center(
+//               child: CircularProgressIndicator(),
+//             );
+//           }
+//           return ListView.builder(
+//             itemCount: snapshot.data!.docs.length,
+//             itemBuilder: (context, index) {
+//               return historywidgets(
+//                 dieasesname: snapshot.data!.docs[index]['diseaseName'],
+//                 time: "22-10-1998",
+//                 result: snapshot.data!.docs[index]['result'],
+//               );
+//             },
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
 
 class historywidgets extends StatelessWidget {
   final String dieasesname;

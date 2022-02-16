@@ -47,6 +47,9 @@ dependencies:
   provider:
   uuid: ^3.0.5
   firebase_storage: ^10.2.7
+  flutter_spinkit: ^5.1.0
+  animated_text_kit: ^4.2.1
+  # simple_animations: ^4.0.1
 
 
  

@@ -60,13 +60,17 @@ class _ResultScreenState extends State<ResultScreen> {
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () => postImage(
-                    FirebaseAuth.instance.currentUser!.uid,
-                    widget.result_name,
-                    widget.result_value.toString(),
-                    // userProvider.getUser.uid,
-                  ),
-              icon: const Icon(Icons.skip_previous))
+            onPressed: () => postImage(
+              FirebaseAuth.instance.currentUser!.uid,
+              widget.result_name,
+              widget.result_value.toString(),
+              // userProvider.getUser.uid,
+            ),
+            icon: const Icon(
+              Icons.save,
+            ),
+            tooltip: 'Save Result',
+          )
         ],
       ),
       body: PieChartSample1(

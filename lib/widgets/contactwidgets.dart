@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:skin_care/utils/colors.dart';
 
@@ -11,7 +10,6 @@ class profilewidgets extends StatelessWidget {
     required this.title,
     required this.subString,
     required this.icon,
-
   });
 
   @override
@@ -20,36 +18,40 @@ class profilewidgets extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Container(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Icon(
-              icon,
+                icon,
                 color: Colors.grey,
                 size: 30,
               ),
+            ),
+            const SizedBox(
+              width: 25,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   subString,
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 2,
                 ),
                 Text(
                   title,
-                  style: TextStyle(color: white, fontSize: 18),
+                  style: const TextStyle(color: white, fontSize: 18),
                 ),
               ],
             ),
-            Icon(
-              Icons.edit,
-              color: Colors.green[400],
-            ),
+            // Icon(
+            //   Icons.edit,
+            //   color: Colors.green[400],
+            // ),
           ],
         ),
       ),

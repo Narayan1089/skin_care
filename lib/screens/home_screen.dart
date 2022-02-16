@@ -50,6 +50,26 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       drawer: MainDrawer(),
+      body: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            // ignore: prefer_const_constructors
+            child: Center(
+              child: const Text(
+                'Welcome User',
+                // ignore: unnecessary_const
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          Expanded(child: Image.asset('assets/doctor_result.png')),
+        ],
+      ),
     );
   }
 }

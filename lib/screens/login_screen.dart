@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skin_care/screens/navigate_screen.dart';
+import 'package:skin_care/screens/splash_screen.dart';
 
 import '../resources/auth_methods.dart';
 import '../utils/utils.dart';
@@ -35,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text, password: _passwordController.text);
     if (res == 'success') {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => NavigateScreen()),
+          MaterialPageRoute(builder: (context) => SplashScreen()),
           (route) => false);
 
       setState(() {

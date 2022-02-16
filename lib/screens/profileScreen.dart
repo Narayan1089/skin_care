@@ -27,9 +27,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     // TODO: implement initState
-
-    super.initState();
     getUserData();
+    super.initState();
   }
 
   getUserData() async {
@@ -56,23 +55,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
     // final Future<DocumentSnapshot<Map<String, dynamic>>> userSnap = FirebaseFirestore.instance.collection('users').doc(user.uid).get();
     return Scaffold(
       appBar: AppBar(
-          elevation: 1,
-          shadowColor: Colors.grey,
-          backgroundColor: mobileBackgroundColor,
-          actions: [
-            Center(
-                child: Text(
-              "Save",
-              style: TextStyle(fontSize: 18, color: Colors.green[400]),
-            ))
-          ],
-          title: Center(
-            child: Text(
-              'Profile',
-              style: TextStyle(
-                  color: white, fontSize: 25, fontWeight: FontWeight.bold),
-            ),
-          )),
+        elevation: 1,
+        shadowColor: Colors.grey,
+        backgroundColor: mobileBackgroundColor,
+        // actions: [
+        //   Center(
+        //       child: Text(
+        //     "Save",
+        //     style: TextStyle(fontSize: 18, color: Colors.green[400]),
+        //   ))
+        // ],
+        title: Center(
+          child: Text(
+            'Profile',
+            style: TextStyle(
+                color: white, fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
       body:
           // userData == null
           //     ? CircularProgressIndicator()
@@ -101,11 +101,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
             subString: 'Email',
             title: userData['email'],
           ),
-          // profilewidgets(
-          //   icon: Icons.contacts_outlined,
-          //   subString: 'contact',
-          //   title: "+9167090343",
-          // ),
+          profilewidgets(
+            icon: Icons.contacts_outlined,
+            subString: 'contact',
+            title: "+9167090343",
+          ),
+          profilewidgets(
+            icon: Icons.format_list_numbered_rounded,
+            subString: 'No of Scans',
+            title: "3",
+          ),
         ],
       ),
     );

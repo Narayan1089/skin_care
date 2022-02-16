@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:io';
 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,6 +11,7 @@ import 'package:skin_care/utils/colors.dart';
 import 'package:tflite/tflite.dart';
 
 import 'login_screen.dart';
+import 'splash_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -99,9 +102,11 @@ class _SearchScreenState extends State<SearchScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 60.0, left: 20),
-              child: Text('Take Test',
-                  style: TextStyle(
-                      color: white, fontSize: 30, fontWeight: FontWeight.bold)),
+              child: Text(
+                'Take Test',
+                style: TextStyle(
+                    color: white, fontSize: 30, fontWeight: FontWeight.bold),
+              ),
             ),
             _loading
                 ? Container(
@@ -146,13 +151,14 @@ class _SearchScreenState extends State<SearchScreen> {
                             : Container(),
                         Padding(
                           padding: const EdgeInsets.only(
-                            left: 35.0,
+                            left: 5.0,
                             top: 25,
                           ),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Container(
-                                width: 150,
+                                width: 140,
                                 decoration: BoxDecoration(
                                     color: Colors.blue,
                                     borderRadius: BorderRadius.circular(7)),
@@ -166,7 +172,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                   color: Colors.blue,
                                 ),
                               ),
-                              const SizedBox(width: 15),
+                              const SizedBox(width: 12),
                               Container(
                                 width: 150,
                                 decoration: BoxDecoration(
@@ -174,7 +180,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                     borderRadius: BorderRadius.circular(7)),
                                 child: FlatButton(
                                   onPressed: openGallery,
-                                  child: const Text('Choose from Gallary',
+                                  child: const Text('Choose from Gallery',
                                       style: TextStyle(
                                         color: Colors.blue,
                                         fontSize: 12,
@@ -234,6 +240,12 @@ class _SearchScreenState extends State<SearchScreen> {
 
   //camera method
   Future openGallery() async {
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => SplashScreen(),
+    //   ),
+    // );
     var piture = await _picker.getImage(source: ImageSource.gallery);
     setState(() {
       _image = piture;

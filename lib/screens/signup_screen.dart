@@ -5,14 +5,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:skin_care/screens/navigate_screen.dart';
-
+import 'package:skin_care/screens/splash_screen.dart';
 
 import '../resources/auth_methods.dart';
 
 import '../utils/utils.dart';
 import '../widgets/text_field_input.dart';
 import 'login_screen.dart';
-
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -65,7 +64,7 @@ class _LoginScreenState extends State<SignupScreen> {
       });
       // navigate to the home screen
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => NavigateScreen()),
+        MaterialPageRoute(builder: (context) => SplashScreen()),
       );
     } else {
       setState(() {

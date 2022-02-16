@@ -127,30 +127,30 @@ class Doctorinfo extends StatelessWidget {
               bottom: 10,
             ),
             child: Text(
-              "appointment info",
+              "Appointment info",
               style: TextStyle(
                 color: Colors.blueGrey,
                 fontSize: 20,
               ),
             ),
           ),
-     appoinmentinfo(
+          appoinmentinfo(
             color2: Color.fromARGB(255, 223, 204, 226),
             color: Colors.purple,
             icon: Icons.person,
             title: education,
           ),
-    appoinmentinfo(
+          appoinmentinfo(
             color2: Color.fromARGB(255, 194, 204, 211),
             color: Colors.blue,
             icon: Icons.attribution_outlined,
-            title:address,
+            title: address,
           ),
-         appoinmentinfo(
+          appoinmentinfo(
             color2: Color.fromARGB(255, 223, 204, 226),
             color: Colors.purple,
             icon: Icons.timer,
-            title:time,
+            title: time,
           ),
           const Padding(
             padding: EdgeInsets.only(
@@ -159,14 +159,14 @@ class Doctorinfo extends StatelessWidget {
               bottom: 10,
             ),
             child: Text(
-              "about",
+              "About",
               style: TextStyle(
                 color: Colors.blueGrey,
                 fontSize: 20,
               ),
             ),
           ),
-        Padding(
+          Padding(
             padding: EdgeInsets.only(
               left: 20,
               right: 20,

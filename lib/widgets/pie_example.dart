@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:skin_care/widgets/colors_extension.dart';
+import 'package:skin_care/utils/colors_extension.dart';
 
 import 'indicator.dart';
 
@@ -108,7 +108,7 @@ class PieChartSample1State extends State<PieChartSample1> {
         final isTouched = i == touchedIndex;
         final opacity = isTouched ? 1.0 : 0.6;
 
-        const color0 = Color.fromARGB(255, 238, 2, 2);
+        const color0 = Color.fromARGB(255, 255, 12, 12);
         const color1 = Colors.grey;
         var round_val =
             double.parse(widget.result_value!.toStringAsFixed(1)) * 100;
@@ -119,7 +119,7 @@ class PieChartSample1State extends State<PieChartSample1> {
               color: color0.withOpacity(opacity),
               value: round_val,
               title: '$round_val%',
-              radius: 90,
+              radius: 110,
               titleStyle: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -132,9 +132,9 @@ class PieChartSample1State extends State<PieChartSample1> {
           case 1:
             return PieChartSectionData(
               color: color1.withOpacity(opacity),
-              value: 25,
+              value: (100 - round_val),
               title: 'Others',
-              radius: 80,
+              radius: 110,
               titleStyle: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

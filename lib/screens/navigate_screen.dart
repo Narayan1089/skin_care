@@ -19,7 +19,9 @@ List<Widget> homeScreenItems = [
   HomeScreen(),
   DoctorScreen(),
   SearchScreen(),
-  HistoryScreen(),
+  HistoryScreen(
+    uid: FirebaseAuth.instance.currentUser!.uid,
+  ),
   ProfileScreen(
     uid: FirebaseAuth.instance.currentUser!.uid,
   ),
