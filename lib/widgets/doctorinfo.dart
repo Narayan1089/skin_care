@@ -92,7 +92,7 @@ class Doctorinfo extends StatelessWidget {
                           ),
                           height: MediaQuery.of(context).size.height * 0.08,
                           width: MediaQuery.of(context).size.height * 0.09,
-                          child: Image.network(image,
+                          child: Image.asset(image,
                               height: MediaQuery.of(context).size.height * 0.08,
                               width: MediaQuery.of(context).size.height * 0.09),
                         ),

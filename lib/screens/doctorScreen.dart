@@ -146,7 +146,7 @@ class doctorwidget extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(left: 4.0),
                         child: CircleAvatar(
-                          child: Image.network(image),
+                          child: Image.asset(image),
                           radius: 22,
                           // backgroundColor: white,
                         ),
