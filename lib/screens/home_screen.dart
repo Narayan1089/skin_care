@@ -51,23 +51,137 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: MainDrawer(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.only(top:20,left:20,bottom:10,),
             // ignore: prefer_const_constructors
-            child: Center(
-              child: const Text(
-                'Welcome User',
-                // ignore: unnecessary_const
-                style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
+            child: const Text(
+              'Your health report',
+              // ignore: unnecessary_const
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.lightBlue,
+                fontWeight: FontWeight.bold,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
-          Expanded(child: Image.asset('assets/doctor_result.png')),
+Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        height: 200,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(10)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white.withOpacity(0.1),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                color: white,
+                width: 0.05,
+              ),
+            ),
+
+          ),
+        ),
+      ),),
+
+      Row(children: [
+        Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        height: MediaQuery.of(context).size.height*0.4,
+
+        width:MediaQuery.of(context).size.width*0.45,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(10)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white.withOpacity(0.1),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                color: white,
+                width: 0.05,
+              ),
+            ),
+
+          ),
+        ),
+      ),),
+       Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Container(
+        height: MediaQuery.of(context).size.height*0.25,
+
+        width:MediaQuery.of(context).size.width*0.45,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(10)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white.withOpacity(0.1),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                color: white,
+                width: 0.05,
+              ),
+            ),
+
+          ),
+        ),
+      ),),
+
+
+
+      ],)
+
+          // Expanded(child: Image.asset('assets/doctor_result.png')),
         ],
       ),
     );

@@ -166,18 +166,19 @@ class doctorwidget extends StatelessWidget {
                                 fontSize: 18,
                               ),
                             ),
+                            SizedBox(height:10),
                             Text(
                               degree,
                               style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 16,
                               ),
                             ),
-                            Text(
-                              education,
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
+                            // Text(
+                            //   education,
+                            //   style: TextStyle(
+                            //     fontSize: 12,
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),

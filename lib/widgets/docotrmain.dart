@@ -10,7 +10,7 @@ class doctormain extends StatelessWidget {
     required this.degree,
     required this.eduction,
 
- 
+
   }) ;
 
   @override

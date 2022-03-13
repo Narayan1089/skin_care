@@ -7,6 +7,8 @@ import 'package:skin_care/screens/home_screen.dart';
 import 'package:skin_care/screens/profileScreen.dart';
 import 'package:skin_care/screens/searchScreen.dart';
 import 'package:skin_care/utils/colors.dart';
+import 'package:skin_care/widgets/flchartlogic.dart';
+
 
 const mobileBackgroundColor = Color.fromRGBO(0, 0, 0, 1);
 const webBackgroundColor = Color.fromRGBO(18, 18, 18, 1);
@@ -16,9 +18,9 @@ const primaryColor = Colors.white;
 const secondaryColor = Colors.grey;
 
 List<Widget> homeScreenItems = [
-  HomeScreen(),
+  Chart(),
   DoctorScreen(),
-  SearchScreen(),
+ SearchScreen(),
   HistoryScreen(
     uid: FirebaseAuth.instance.currentUser!.uid,
   ),

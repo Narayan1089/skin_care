@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skin_care/utils/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Doctorinfo extends StatelessWidget {
   final String name;
@@ -190,7 +191,9 @@ class Doctorinfo extends StatelessWidget {
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(7)),
                   child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      launch(('tel://9167090343'));
+                    },
                     child: const Text('Schedule',
                         style: TextStyle(
                           color: Colors.white,

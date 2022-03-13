@@ -144,8 +144,6 @@ class historywidgets extends StatelessWidget {
     // String data = result.round();
     double resultData = double.parse(result);
     int tusharOP = resultData.round();
-    print(tusharOP);
-    print(resultData);
 
     return Padding(
       padding: const EdgeInsets.all(10.0),
