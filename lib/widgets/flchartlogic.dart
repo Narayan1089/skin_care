@@ -36,7 +36,7 @@ class _ChartState extends State<Chart> {
         shadowColor: Colors.grey,
         backgroundColor: mobileBackgroundColor,
         title: const Text(
-          "Skincare",
+          "SkinCare",
           style: TextStyle(
               fontWeight: FontWeight.bold, color: white, fontSize: 25),
         ),
@@ -60,11 +60,14 @@ class _ChartState extends State<Chart> {
       ),
       drawer: MainDrawer(),
       body: Column(
-
         children: <Widget>[
-
           Padding(
-            padding: const EdgeInsets.only(top:20.0,left:10,right:20,bottom: 10,),
+            padding: const EdgeInsets.only(
+              top: 20.0,
+              left: 10,
+              right: 20,
+              bottom: 10,
+            ),
             child: AspectRatio(
               aspectRatio: 1.70,
               child: Container(
@@ -84,8 +87,8 @@ class _ChartState extends State<Chart> {
             ),
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width*0.5,
-            height:MediaQuery.of(context).size.width*0.1 ,
+            width: MediaQuery.of(context).size.width * 0.5,
+            height: MediaQuery.of(context).size.width * 0.1,
             child: TextButton(
               onPressed: () {
                 setState(() {
@@ -101,122 +104,172 @@ class _ChartState extends State<Chart> {
               ),
             ),
           ),
-
-          SizedBox(height:20),
-
-          Row(crossAxisAlignment:CrossAxisAlignment.center,children: [
-
-        Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Container(
-        height: MediaQuery.of(context).size.height*0.3,
-
-        width:MediaQuery.of(context).size.width*0.4,
-        decoration: BoxDecoration(
-          color:  Color.fromARGB(255, 80, 177, 151),
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.1),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-
-          ],
-        ),
-        child:Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text('Doctor',style: TextStyle(fontSize: 25,),),
-            ),
-            Center(
-              child: Container(
-                height:120,
-                width:100,
-                child:Image.asset('assets/doctor.png')
+          const SizedBox(height: 30),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 80, 177, 151),
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.1),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Text(
+                          'Doctor',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: Container(
+                            height: 120,
+                            width: 100,
+                            child: Image.asset('assets/doctor.png')),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Row(
+                          children: const [
+                            Text(
+                              '11',
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              ' experts',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(
+                          top: 5.0,
+                          left: 30,
+                        ),
+                        child: Text(
+                          'Experts doctor',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Color.fromARGB(255, 243, 221, 221),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left:8.0),
-              child: Row(children: [
-                 Text('11',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,),),
-                  Text(' experts',style: TextStyle(fontSize: 16,),),
-              ],),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top:5.0,left:30,),
-              child: Text('Experts doctor',style: TextStyle(fontSize: 15,color:Color.fromARGB(255, 243, 221, 221),),),
-            ),
-          ],
-        ),
-      ),),
-      SizedBox(width:10),
-      Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Container(
-        height: MediaQuery.of(context).size.height*0.3,
-
-        width:MediaQuery.of(context).size.width*0.4,
-        decoration: BoxDecoration(
-          color: Color.fromARGB(255, 86, 186, 220),
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.1),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child:Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text('Diagnosis',style: TextStyle(fontSize: 25,),),
-            ),
-            Center(
-              child: Container(
-                height:120,
-                width:90,
-                child:Image.asset('assets/diagnosis.png',width: 90,)
+              const SizedBox(width: 10),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: MediaQuery.of(context).size.width * 0.44,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 86, 186, 220),
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.1),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Diagnosis',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: Container(
+                            height: 120,
+                            width: 90,
+                            child: Image.asset(
+                              'assets/diagnosis.png',
+                              width: 90,
+                            )),
+                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(left:8.0),
+                      //   child: Row(children: [
+                      //      Text('11',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,),),
+                      //       Text(' experts',style: TextStyle(fontSize: 16,),),
+                      //   ],),
+                      // ),
+                      const Padding(
+                        padding: EdgeInsets.only(
+                          top: 5.0,
+                          left: 15,
+                        ),
+                        child: Text(
+                          'AI Based Self ',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Color.fromARGB(255, 243, 221, 221),
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(
+                          left: 20,
+                        ),
+                        child: Text(
+                          'Assesment ',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Color.fromARGB(255, 243, 221, 221),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            // Padding(
-            //   padding: const EdgeInsets.only(left:8.0),
-            //   child: Row(children: [
-            //      Text('11',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,),),
-            //       Text(' experts',style: TextStyle(fontSize: 16,),),
-            //   ],),
-            // ),
-            Padding(
-              padding: const EdgeInsets.only(top:5.0,left:15,),
-              child: Text('AI Based Self ',style: TextStyle(fontSize: 18,color:Color.fromARGB(255, 243, 221, 221),),),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left:20,),
-              child: Text('Assesment ',style: TextStyle(fontSize: 18,color:Color.fromARGB(255, 243, 221, 221),),),
-            ),
-          ],
-        ),
-      ),),
-
-
-
-      ],)
-
+            ],
+          )
         ],
       ),
     );
@@ -263,8 +316,8 @@ class _ChartState extends State<Chart> {
               case 8:
                 return 'SEP';
 
-              case 8:
-                return 'feb';
+              // case 8:
+              //   return 'Feb';
             }
             return '';
           },
@@ -281,13 +334,13 @@ class _ChartState extends State<Chart> {
           getTitles: (value) {
             switch (value.toInt()) {
               case 1:
-                return '10k';
+                return '10';
               case 3:
-                return '30k';
+                return '25';
               case 5:
-                return '50k';
-              case 7:
-                return '60k';
+                return '50';
+              // case 7:
+              //   return '60';
             }
             return '';
           },
@@ -305,13 +358,13 @@ class _ChartState extends State<Chart> {
       lineBarsData: [
         LineChartBarData(
           spots: const [
-            FlSpot(0, 3),
-            FlSpot(2.6, 2),
-            FlSpot(4.9, 5),
-            FlSpot(6.8, 3.1),
-            FlSpot(8, 4),
-            FlSpot(9.5, 3),
-            FlSpot(11, 4),
+            FlSpot(0, 2),
+            FlSpot(2.6, 5),
+            FlSpot(4.9, 1),
+            FlSpot(6.8, 1),
+            FlSpot(8, 1),
+            FlSpot(9.5, 1),
+            FlSpot(11, 1),
           ],
           isCurved: true,
           colors: gradientColors,
@@ -384,11 +437,11 @@ class _ChartState extends State<Chart> {
           getTitles: (value) {
             switch (value.toInt()) {
               case 1:
-                return '10k';
+                return '10';
               case 3:
-                return '30k';
+                return '30';
               case 5:
-                return '50k';
+                return '50';
             }
             return '';
           },

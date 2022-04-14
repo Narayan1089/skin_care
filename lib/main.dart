@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:skin_care/provider/doctorprovider.dart';
 
 import 'package:skin_care/screens/navigate_screen.dart';
+import 'package:skin_care/screens/splash_screen.dart';
 
 import 'provider/user_provider.dart';
 import 'screens/login_screen.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
               // Checking if the snapshot has any data or not
               if (snapshot.hasData) {
                 // if snapshot has data which means user is logged in then we check the width of screen and accordingly display the screen layout
-                return const NavigateScreen();
+                return const SplashScreen();
               } else if (snapshot.hasError) {
                 return Center(
                   child: Text('${snapshot.error}'),

@@ -192,7 +192,10 @@ class Doctorinfo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(7)),
                   child: FlatButton(
                     onPressed: () {
-                      launch(('tel://9167090343'));
+                      launch(('mailto:krutikrautbhau@gmail.com?subject=Schedule Appointment for consulatation&body=Respected,%20Krutik Bhau'))
+
+                          // launch(('tel://9167090343'))
+                          ;
                     },
                     child: const Text('Schedule',
                         style: TextStyle(

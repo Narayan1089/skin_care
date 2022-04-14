@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skin_care/screens/about.dart';
 // import 'package:provider/provider.dart';
 import 'package:skin_care/utils/colors.dart';
 import 'package:skin_care/widgets/contactwidgets.dart';
@@ -58,13 +59,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
         elevation: 1,
         shadowColor: Colors.grey,
         backgroundColor: mobileBackgroundColor,
-        // actions: [
-        //   Center(
-        //       child: Text(
-        //     "Save",
-        //     style: TextStyle(fontSize: 18, color: Colors.green[400]),
-        //   ))
-        // ],
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.info,
+              color: white,
+              size: 30.0,
+            ),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const About(),
+                ),
+              );
+            },
+          )
+        ],
         title: Center(
           child: Text(
             'Profile',

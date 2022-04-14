@@ -30,7 +30,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
         ),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.search_outlined,
               color: white,
               size: 30.0,
@@ -39,7 +39,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => SplashScreen(),
+                  builder: (BuildContext context) => const SplashScreen(),
                   fullscreenDialog: true,
                 ),
               );
@@ -116,7 +116,7 @@ class doctorwidget extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.black,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                     bottomLeft: Radius.circular(10),
@@ -126,7 +126,7 @@ class doctorwidget extends StatelessWidget {
                     color: Colors.white.withOpacity(0.1),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
@@ -141,35 +141,39 @@ class doctorwidget extends StatelessWidget {
                     ),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 4.0),
-                        child: CircleAvatar(
-                          child: Image.asset(image),
-                          radius: 22,
-                          // backgroundColor: white,
-                        ),
-                      ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.05,
                       ),
+                      CircleAvatar(
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(45),
+                            child: Image.asset(image)),
+                        radius: 26,
+                        // backgroundColor: white,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.06,
+                      ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 16.0),
+                        padding: const EdgeInsets.only(top: 22.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               name,
-                              style: TextStyle(
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
                                 fontSize: 18,
                               ),
                             ),
-                            SizedBox(height:10),
+                            const SizedBox(height: 10),
                             Text(
                               degree,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                               ),
                             ),
@@ -182,12 +186,13 @@ class doctorwidget extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.2),
+                      // SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                       InkWell(
-                        child: const Icon(
-                          Icons.arrow_forward_ios,
-                          size: 18,
-                        ),
+                        child: const Icon(null
+
+                            // Icons.arrow_forward_ios,
+                            // size: 25,
+                            ),
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(

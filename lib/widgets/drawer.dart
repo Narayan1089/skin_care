@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skin_care/screens/about.dart';
 import 'package:skin_care/utils/colors.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -11,7 +12,7 @@ class MainDrawer extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
             fontFamily: 'Robotocondensed',
             fontSize: 20,
             // fontWeight: FontWeight.bold,
@@ -29,13 +30,13 @@ class MainDrawer extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(
+            child: const Padding(
+              padding: EdgeInsets.only(
                 top: 20.0,
                 left: 10,
                 bottom: 15,
               ),
-              child: Text('Skincare',
+              child: Text('SkinCare',
                   style: TextStyle(
                     fontSize: 25,
                     color: white,
@@ -43,7 +44,7 @@ class MainDrawer extends StatelessWidget {
                   )),
             ),
           ),
-          Divider(
+          const Divider(
             color: white,
           ),
           builderList('Home', Icons.home, () {}),
@@ -51,12 +52,17 @@ class MainDrawer extends StatelessWidget {
           builderList('Health Test', Icons.checklist_rtl_outlined, () {}),
           builderList('History', Icons.history_outlined, () {}),
           builderList('Settings', Icons.person, () {}),
-          builderList('About', Icons.info_outline, () {}),
-          Divider(
+          builderList('About', Icons.info_outline, () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const About()),
+            );
+          }),
+          const Divider(
             color: white,
           ),
           builderList('Log out', Icons.logout_outlined, () {}),
-          Divider(
+          const Divider(
             color: white,
           ),
         ],

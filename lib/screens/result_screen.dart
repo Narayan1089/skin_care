@@ -37,7 +37,7 @@ class _ResultScreenState extends State<ResultScreen> {
         });
         showSnackBar(
           context,
-          'Posted!',
+          'Result uploaded successfully',
         );
       } else {
         showSnackBar(context, res);

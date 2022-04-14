@@ -93,7 +93,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
             itemBuilder: (context, index) {
               return historywidgets(
                 dieasesname: snapshot.data!.docs[index]['diseaseName'],
-                time: "22-10-1998",
+                time: snapshot.data!.docs[index]['datePublished']
+                    .toDate()
+                    .toString(),
                 result: snapshot.data!.docs[index]['result'],
               );
             },

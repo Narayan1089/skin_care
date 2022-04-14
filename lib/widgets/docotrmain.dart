@@ -1,17 +1,14 @@
-
 import 'package:flutter/material.dart';
 
 class doctormain extends StatelessWidget {
   final String? name;
   final String? degree;
   final String? eduction;
- const doctormain({
+  const doctormain({
     required this.name,
     required this.degree,
     required this.eduction,
-
-
-  }) ;
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +27,7 @@ class doctormain extends StatelessWidget {
           Text(
             degree!,
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 14,
             ),
           ),
           Text(

@@ -108,6 +108,9 @@ class _SearchScreenState extends State<SearchScreen> {
                     color: white, fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
+            const SizedBox(
+              height: 50,
+            ),
             _loading
                 ? Container(
                     alignment: Alignment.center,
@@ -124,31 +127,35 @@ class _SearchScreenState extends State<SearchScreen> {
                                 child: Container(
                                   child: SvgPicture.asset("assets/svgc.svg"),
                                   height:
-                                      MediaQuery.of(context).size.height * 0.6,
+                                      MediaQuery.of(context).size.height * 0.5,
                                   width:
                                       MediaQuery.of(context).size.width * 0.8,
                                 ),
                               )
                             : Container(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.5,
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                    MediaQuery.of(context).size.height * 0.30,
+                                width: MediaQuery.of(context).size.width * 0.90,
                                 child: Image.file(File(
                                   _image!.path,
                                 ))),
-                        const SizedBox(
-                          height: 10,
-                        ),
+                        // const SizedBox(
+                        //   height: 10,
+                        // ),
                         _outputs != null
                             ? Text(
-                                '${_outputs![0]["label"]},${_outputs![0]["confidence"]}',
+                                '${_outputs![0]["label"]}: ${_outputs![0]["confidence"].toStringAsFixed(4)}',
                                 style: TextStyle(
+                                  fontWeight: FontWeight.bold,
                                   color: Colors.black,
-                                  fontSize: 10.0,
+                                  fontSize: 16.0,
                                   background: Paint()..color = Colors.white,
                                 ),
                               )
                             : Container(),
+                        const SizedBox(
+                          height: 30,
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(
                             left: 5.0,
