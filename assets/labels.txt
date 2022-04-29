@@ -1,3 +1,2 @@
-Melanoma
-Nevus
-Seborrheic_keratosis
+benign
+malignant 

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:skin_care/screens/result_screen.dart';
+
 import 'package:skin_care/utils/colors.dart';
 import 'package:skin_care/widgets/drawer.dart';
-import 'dart:io';
-import 'dart:async';
-import 'package:tflite/tflite.dart';
 
 import '../resources/auth_methods.dart';
 import 'login_screen.dart';
@@ -78,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.black,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                     bottomLeft: Radius.circular(10),
@@ -88,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.white.withOpacity(0.1),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
@@ -116,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: MediaQuery.of(context).size.width * 0.45,
                   decoration: BoxDecoration(
                     color: Colors.black,
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
                         topRight: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
@@ -126,7 +121,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.white.withOpacity(0.1),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                   ),
@@ -151,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: MediaQuery.of(context).size.width * 0.65,
                   decoration: BoxDecoration(
                     color: Colors.black,
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
                         topRight: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
@@ -161,7 +157,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.white.withOpacity(0.1),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                   ),

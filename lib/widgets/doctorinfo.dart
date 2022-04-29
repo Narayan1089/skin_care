@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:skin_care/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,6 +14,7 @@ class Doctorinfo extends StatelessWidget {
   final String education;
   final String gender;
 
+  // ignore: use_key_in_widget_constructors
   const Doctorinfo({
     required this.gender,
     required this.name,
@@ -59,7 +62,7 @@ class Doctorinfo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.1),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
@@ -98,7 +101,7 @@ class Doctorinfo extends StatelessWidget {
                               width: MediaQuery.of(context).size.height * 0.09),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Column(
@@ -107,12 +110,12 @@ class Doctorinfo extends StatelessWidget {
                         children: [
                           Text(
                             name,
-                            style: TextStyle(fontSize: 20),
+                            style: const TextStyle(fontSize: 20),
                           ),
-                          SizedBox(height: 3),
+                          const SizedBox(height: 3),
                           Text(
                             "$gender $age ",
-                            style: TextStyle(color: Colors.grey),
+                            style: const TextStyle(color: Colors.grey),
                           ),
                         ],
                       ),
@@ -136,19 +139,19 @@ class Doctorinfo extends StatelessWidget {
             ),
           ),
           appoinmentinfo(
-            color2: Color.fromARGB(255, 223, 204, 226),
+            color2: const Color.fromARGB(255, 223, 204, 226),
             color: Colors.purple,
             icon: Icons.person,
             title: education,
           ),
           appoinmentinfo(
-            color2: Color.fromARGB(255, 194, 204, 211),
+            color2: const Color.fromARGB(255, 194, 204, 211),
             color: Colors.blue,
             icon: Icons.attribution_outlined,
             title: address,
           ),
           appoinmentinfo(
-            color2: Color.fromARGB(255, 223, 204, 226),
+            color2: const Color.fromARGB(255, 223, 204, 226),
             color: Colors.purple,
             icon: Icons.timer,
             title: time,
@@ -168,14 +171,14 @@ class Doctorinfo extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 20,
               right: 20,
               bottom: 20,
             ),
             child: Text(
               about,
-              style: TextStyle(fontSize: 17),
+              style: const TextStyle(fontSize: 17),
             ),
           ),
           const SizedBox(
@@ -205,7 +208,7 @@ class Doctorinfo extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Container(
                   width: 150,
                   decoration: BoxDecoration(
@@ -258,7 +261,7 @@ class appoinmentinfo extends StatelessWidget {
             ),
           ),
           title: Text(title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 17,
               )),
         ),

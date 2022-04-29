@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:io';
 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -50,7 +48,7 @@ class _SearchScreenState extends State<SearchScreen> {
   classifyImage(image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 2,
+      numResults: 1,
       threshold: 0.5,
       imageMean: 127.5,
       imageStd: 127.5,
@@ -63,7 +61,9 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Future pickImage() async {
-    var image = await _picker.getImage(source: ImageSource.gallery);
+    var image = await _picker.getImage(
+      source: ImageSource.gallery,
+    );
     if (image == null) return null;
     setState(() {
       _loading = true;
@@ -79,20 +79,20 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   actions: [
-      //     IconButton(
-      //         onPressed: () async {
-      //           await AuthMethods().signOut();
-      //           Navigator.of(context).pushReplacement(
-      //             MaterialPageRoute(
-      //               builder: (context) => const LoginScreen(),
-      //             ),
-      //           );
-      //         },
-      //         icon: const Icon(Icons.logout))
-      //   ],
-      // ),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () async {
+                await AuthMethods().signOut();
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => const LoginScreen(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.logout))
+        ],
+      ),
       backgroundColor: const Color.fromARGB(194, 6, 78, 133),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -100,11 +100,11 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 60.0, left: 20),
+            const Padding(
+              padding: EdgeInsets.only(top: 60.0, left: 20),
               child: Text(
                 'Take Test',
-                style: TextStyle(
+                style: const TextStyle(
                     color: white, fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),

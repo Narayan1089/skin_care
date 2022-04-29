@@ -1,17 +1,14 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 import 'package:skin_care/screens/about.dart';
 // import 'package:provider/provider.dart';
 import 'package:skin_care/utils/colors.dart';
 import 'package:skin_care/widgets/contactwidgets.dart';
-import 'package:skin_care/models/user.dart' as model;
 
-import '../provider/user_provider.dart';
 import '../utils/utils.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -24,11 +21,14 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   var userData = {};
+  int historyLen = 0;
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     getUserData();
+    getData();
     super.initState();
   }
 
@@ -49,6 +49,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
       );
     }
     setState(() {});
+  }
+
+  getData() async {
+    setState(() {});
+    try {
+      await FirebaseFirestore.instance
+          .collection('results')
+          .doc(widget.uid)
+          .get();
+
+      // get post lENGTH
+      var postSnap = await FirebaseFirestore.instance
+          .collection('results')
+          .where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+          .get();
+
+      historyLen = postSnap.docs.length;
+    } catch (e) {
+      showSnackBar(
+        context,
+        e.toString(),
+      );
+    }
   }
 
   @override
@@ -114,12 +137,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
           profilewidgets(
             icon: Icons.contacts_outlined,
             subString: 'contact',
-            title: "+9167090343",
+            title: "+91987654321",
           ),
           profilewidgets(
             icon: Icons.format_list_numbered_rounded,
             subString: 'No of Scans',
-            title: "3",
+            title: historyLen.toString(),
+            // historyLen == 0 ? "No Scans" : historyLen.toString(),
           ),
         ],
       ),

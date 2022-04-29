@@ -186,13 +186,12 @@ class doctorwidget extends StatelessWidget {
                           ],
                         ),
                       ),
-                      // SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                       InkWell(
-                        child: const Icon(null
-
-                            // Icons.arrow_forward_ios,
-                            // size: 25,
-                            ),
+                        child: const Icon(
+                          Icons.arrow_circle_right_outlined,
+                          size: 25,
+                        ),
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(

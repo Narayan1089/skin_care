@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:skin_care/screens/doctorScreen.dart';
 import 'package:skin_care/screens/historyScreeen.dart';
-import 'package:skin_care/screens/home_screen.dart';
+
 import 'package:skin_care/screens/profileScreen.dart';
 import 'package:skin_care/screens/searchScreen.dart';
-import 'package:skin_care/utils/colors.dart';
+
 import 'package:skin_care/widgets/flchartlogic.dart';
 
 const mobileBackgroundColor = Color.fromRGBO(0, 0, 0, 1);
@@ -17,9 +17,9 @@ const primaryColor = Colors.white;
 const secondaryColor = Colors.grey;
 
 List<Widget> homeScreenItems = [
-  Chart(),
-  DoctorScreen(),
-  SearchScreen(),
+  const Chart(),
+  const DoctorScreen(),
+  const SearchScreen(),
   HistoryScreen(
     uid: FirebaseAuth.instance.currentUser!.uid,
   ),

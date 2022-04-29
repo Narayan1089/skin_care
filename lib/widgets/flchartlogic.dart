@@ -1,14 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:skin_care/screens/result_screen.dart';
+
 import 'package:skin_care/utils/colors.dart';
 import 'package:skin_care/widgets/drawer.dart';
-import 'dart:io';
-import 'dart:async';
-import 'package:tflite/tflite.dart';
+
 import '../screens/login_screen.dart';
 
 import '../resources/auth_methods.dart';
@@ -154,7 +149,7 @@ class _ChartState extends State<Chart> {
                         child: Row(
                           children: const [
                             Text(
-                              '11',
+                              '20+',
                               style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
